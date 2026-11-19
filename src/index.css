@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-cinzel: 'Cinzel', serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-urdu: 'Amiri', serif;
+    --brand-burgundy: #850B1B;
+    --brand-dark-burgundy: #670815;
+    --brand-gold: #C5A059;
+    --brand-cream: #FDFBF7;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #FAFAF8;
+    color: #1A1A1A;
+    overflow-x: hidden;
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  /* Default text elements to standard I-beam cursor */
+  h1:not(button):not(button *):not(a):not(a *),
+  h2:not(button):not(button *):not(a):not(a *),
+  h3:not(button):not(button *):not(a):not(a *),
+  h4:not(button):not(button *):not(a):not(a *),
+  p:not(button):not(button *):not(a):not(a *),
+  .text-selectable {
+    cursor: text;
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  .font-cinzel {
+    font-family: var(--font-cinzel);
+  }
+
+  .font-urdu {
+    font-family: var(--font-urdu);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c2b59b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #850B1B;
+}
+
+/* Luxury ticker animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Pulse glow for badges */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.04); }
+}
+
+.pulse-soft {
+  animation: softPulse 2.5s infinite ease-in-out;
+}
